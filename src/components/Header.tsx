@@ -12,12 +12,14 @@ import {
 } from "@/components/ui/sheet"
 import { Input } from "@/components/ui/input"
 import { Instagram  , Facebook  , Github } from 'lucide-react';
+import  logo from '../assets/foodbank-logo.svg';
+
 
 export default function Header() {
     return (
-        <header className=" container mx-auto flex justify-between items-center">
-            <div className="flex items-center">
-              <h1 className="text-xl font-bold mr-4">LOGO</h1>  
+        <header className=" lg:container mx-auto flex justify-between items-center bg-backgound">
+            <div className="flex items-center gap-10">
+              <img src={logo} alt="" className="h-12 ms-2"/>
             <nav className="text-white hidden md:hidden lg:block">
                 <a className="text-foreground/60 mx-2">Home</a>
                 <a className="text-foreground/60 mx-2">About</a>
@@ -25,7 +27,7 @@ export default function Header() {
             </nav>
             </div>
             <div className="flex gap-2">
-                <Input type="text" placeholder="Search" className="" />
+                <Input type="text" placeholder="Search Menu Items" className="" />
                 <ModeToggle />
                 <div className="lg:hidden">
                     <Sheet>

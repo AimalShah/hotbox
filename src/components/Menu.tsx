@@ -117,7 +117,7 @@ const italianFoodMenu = [
 
 export default function Menu() {
     return (
-        <div className="container mx-auto">
+        <div className="lg:container md:container px-2 mx-auto">
             <div>
                 <h1 className="text-5xl">
                     Our Menu
@@ -134,9 +134,9 @@ export default function Menu() {
                         </TabsList>
                         <TabsContent value="discount deals">
                             <motion.div
-                                initial={{ opacity: 0 }}
+                                initial={{ opacity: 0 , scale :0.8}}
                                 animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 1 }}
+                                transition={{ duration: 0.6 }}
                                 className="grid lg:grid-cols-3 w-full gap-2">
                                 {italianFoodMenu.map((item) => (
                                     <Card>
@@ -159,9 +159,9 @@ export default function Menu() {
                         </TabsContent>
                         <TabsContent value="big deals">
                             <motion.div
-                                initial={{ opacity: 0 }}
+                                initial={{ opacity: 0 , scale :0.8}}
                                 animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 1 }}
+                                transition={{ duration: -0.6 }}
                                 className="grid lg:grid-cols-3 w-full gap-2">
                                 {italianFoodMenu.map((item) => (
                                     <Card>
@@ -183,9 +183,9 @@ export default function Menu() {
                         </TabsContent>
                         <TabsContent value="pizza deals">
                             <motion.div
-                                initial={{ opacity: 0 }}
+                                initial={{ opacity: 0 , scale :0.8}}
                                 animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 1 }}
+                                transition={{ duration: 0.6 }}
                                 className="grid lg:grid-cols-3 w-full gap-2">
                                 {italianFoodMenu.map((item) => (
                                     <Card>
@@ -207,9 +207,9 @@ export default function Menu() {
                         </TabsContent>
                         <TabsContent value="single item">
                             <motion.div
-                                initial={{ opacity: 0 }}
+                                initial={{ opacity: 0 , scale :0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 1 }}
+                                transition={{ duration: 0.6 }}
                                 className="grid lg:grid-cols-3 w-full gap-2">
                                 {italianFoodMenu.map((item) => (
                                     <Card>
@@ -232,11 +232,11 @@ export default function Menu() {
                     </Tabs>
                 </div>
             </div>
-            <div className='mt-8 h-32'>
+            <div className='mt-8 h-32 px-10 '>
                 <Carousel>
-                    <CarouselContent className="-ml-2 md:-ml-4">
+                    <CarouselContent className="-ml-2 md:-ml-4 lg:-ml-4">
                        {italianFoodMenu.map((item)=> (
-                         <CarouselItem className="pl-2 md:pl-4">
+                         <CarouselItem className="pl-2 md:pl-4 lg:pl-4 lg:basis-1/3 ">
                             <Card>
                                         <CardHeader>
                                             <img src={item.imageUrl} alt="" className="aspect-[4/3] object-cover" />
