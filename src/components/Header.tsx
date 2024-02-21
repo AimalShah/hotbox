@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { ModeToggle } from "./mode-toggle"
 import { Button } from "./ui/button"
-import { AlignRight } from 'lucide-react';
+import { AlignRight, Search } from 'lucide-react';
 import {
     Sheet,
     SheetContent,
@@ -14,12 +15,38 @@ import { Input } from "@/components/ui/input"
 import { Instagram  , Facebook  , Github } from 'lucide-react';
 import  logo from '../assets/logo.svg';
 
+interface MenuItem {
+    id : number;
+    name : string;
+    price : number;
+    description : string;
+    imageUrl : string;
+    tags : string;
+    badges : string;
+}
 
-export default function Header() {
+interface Props {
+    menu : MenuItem[];
+}
+
+
+const Header : React.FC<Props> = ({menu}) =>  {
+    const [searchTerm , setSearchTerm] = useState<string>('');
+    const [serachResult , setSearchResult] = useState<MenuItem[]>([]);
+
+    const handelChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(event.target.value);
+
+        const results = menu.filter((item) => item.name.toLowerCase().includes(event.target.value.toLowerCase()));
+
+        setSearchResult(results);
+    }        
     return (
         <header className=" lg:container mx-auto flex justify-between items-center bg-backgound">
             <div className="flex items-center gap-10">
-              <img src={logo} alt="" className="h-12 ms-2"/>
+             <a href="">
+                 <img src={logo} alt="" className="h-20 ms-2"/>
+                </a>
             <nav className="text-white hidden md:hidden lg:block">
                 <a className="text-foreground/60 mx-2">Home</a>
                 <a className="text-foreground/60 mx-2">About</a>
@@ -27,7 +54,12 @@ export default function Header() {
             </nav>
             </div>
             <div className="flex gap-2">
-                <Input type="text" placeholder="Search Menu Items" className="" />
+                <Input 
+                type="text" 
+                placeholder="Search Menu Items" 
+                value={searchTerm}
+                onChange={handelChange}
+                className="hidden lg:block" />
                 <ModeToggle />
                 <div className="lg:hidden">
                     <Sheet>
@@ -41,15 +73,35 @@ export default function Header() {
                                 <SheetHeader className="">
                                     <SheetTitle className="text-xl mb-6">MENU</SheetTitle>
                                     <SheetDescription> 
+                                            <div>
+                                            <Input 
+                                            type="text" 
+                                            placeholder="Search Menu Items" 
+                                            value={searchTerm}
+                                            onChange={handelChange}
+                                            className="lg:block" />
+                                            </div>
                                         <nav className="flex flex-col">
-                                            <div  className="w-full">
-                                            <Button variant="ghost">Home</Button>
-                                            </div>
-                                            <div className="w-full">
-                                            <Button variant="ghost">Home</Button>
-                                            </div>
-                                            <div className="w-full">
-                                            <Button variant="ghost">Home</Button>
+                                            <div  className="w-full flex flex-col justify-center ">
+                                            {
+                                              searchTerm === '' ? <p className="mt-6">Empty Here</p> :  
+                                            serachResult.map((item) => (
+                                                <div className="flex gap-2 items-center justify-between mt-8">
+                                                    <div className="flex items-center gap-2">
+                                                    <img src={item.imageUrl} alt="" className="h-12" />
+                                                    <div className="text-lg">
+                                                    {item.name}
+                                                    </div>
+                                                    </div>
+                                                    <div className=" text-lg p-2">
+                                                        <Button>
+
+                                                        {'$'+item.price}
+                                                        </Button>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
                                             </div>
                                         </nav>
                                     </SheetDescription>
@@ -85,3 +137,5 @@ export default function Header() {
         </header>
     )
 }
+
+export default Header;
