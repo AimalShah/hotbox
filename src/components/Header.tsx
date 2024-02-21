@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/sheet"
 import { Input } from "@/components/ui/input"
 import { Instagram  , Facebook  , Github } from 'lucide-react';
-import  logo from '../assets/foodbank-logo.svg';
+import  logo from '../assets/logo.svg';
 
 
 export default function Header() {
