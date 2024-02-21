@@ -14,7 +14,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { Instagram, Facebook, Github } from 'lucide-react';
 import logo from '../assets/logo.svg';
-import { motion } from "framer-motion";
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 interface MenuItem {
