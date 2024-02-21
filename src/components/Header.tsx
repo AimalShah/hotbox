@@ -58,7 +58,7 @@ const Header: React.FC<Props> = ({ menu }) => {
                     className="hidden lg:block" />
                     {
                         searchTerm == '' ? <p></p> :
-                        <div className="absolute top-10 broder bg-background rounded">
+                        <div className="hidden lg:block absolute top-10 broder bg-background rounded">
                             <ScrollArea className=" h-72 w-full rounded-md border p-4">
                                 {searchResult.map((item) => (
                                     <div className="flex gap-2 items-center border-t border-border  p-2  justify-between">
