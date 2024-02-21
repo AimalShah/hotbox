@@ -25,8 +25,8 @@ interface MyObject{
     name : string;
     description : string;
     imageUrl : string;
-    tags : string;
-    badges : string;
+    tags : string[];
+    badges : string[];
 }
 
 
