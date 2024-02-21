@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ModeToggle } from "./mode-toggle"
 import { Button } from "./ui/button"
-import { AlignRight, Search } from 'lucide-react';
+import { AlignRight} from 'lucide-react';
 import {
     Sheet,
     SheetContent,
