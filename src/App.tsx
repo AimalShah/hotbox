@@ -93,7 +93,8 @@ const italianFoodMenu = [
       imageUrl: 'https://via.placeholder.com/150',
       tags: ['Soup'],
       badges: ['Vegetarian'],
-  }
+  },
+  
 ];
 function App() {
  
