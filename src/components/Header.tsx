@@ -82,7 +82,6 @@ const Header: React.FC<Props> = ({ menu }) => {
 
                             
                     }
-   
                 <ModeToggle />
                 <div className="lg:hidden">
                     <Sheet>
@@ -110,10 +109,10 @@ const Header: React.FC<Props> = ({ menu }) => {
                                                     searchTerm === '' ? <p className="mt-6">Empty Here</p> :
                                                     <ScrollArea className=" h-96 rounded-md border p-4 mt-6">
                                                         {searchResult.map((item) => (
-                                                            <div className="flex gap-2 items-center  border-t border-border p-2 justify-between mt-2">
+                                                            <div className="flex gap-2 items-center  border-t border-border py-2 justify-between mt-2">
                                                                 <div className="flex items-center gap-2">
                                                                     <img src={item.imageUrl} alt="" className="h-12" />
-                                                                    <div className="text-md">
+                                                                    <div className="text-xs font-bold">
                                                                         {item.name}
                                                                     </div>
                                                                 </div>
